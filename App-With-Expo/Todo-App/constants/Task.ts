@@ -21,7 +21,7 @@ export const Tasks : Task[] = [
     title: 'Grocery shopping',
     time: '09:00 AM',
     status: 'Pending',
-    icon: { name: 'shopping-basket', backgroundColor: '#FF6B84' },
+    icon: { name: 'cart', backgroundColor: '#FF6B84' },
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ export const Tasks : Task[] = [
     title: 'Morning run',
     time: '07:00 AM',
     status: 'Done',
-    icon: { name: 'run', backgroundColor: '#7BD389' },
+    icon: { name: 'walk', backgroundColor: '#7BD389' },
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ export const Tasks : Task[] = [
     title: 'Team standup meeting',
     time: '11:30 AM',
     status: 'In Progress',
-    icon: { name: 'users', backgroundColor: '#FFD166' },
+    icon: { name: 'people', backgroundColor: '#FFD166' },
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ export const Tasks : Task[] = [
     title: 'Fix login bug #42',
     time: '02:15 PM',
     status: 'Pending',
-    icon: { name: 'bug', backgroundColor: '#FF9F1C' },
+    icon: { name: 'hammer', backgroundColor: '#FF9F1C' },
   },
   {
     id: 5,
@@ -61,6 +61,15 @@ export const Tasks : Task[] = [
     title: 'Call plumber',
     time: '04:00 PM',
     status: 'Done',
-    icon: { name: 'phone', backgroundColor: '#B28DFF' },
+    icon: { name: 'call', backgroundColor: '#B28DFF' },
   },
 ]
+
+export const FILTER_OPTIONS = [
+  "All",
+  "Pending",
+  "Done",
+  "In Progress"
+] as const
+
+export type FilterOptions = (typeof FILTER_OPTIONS)[number]

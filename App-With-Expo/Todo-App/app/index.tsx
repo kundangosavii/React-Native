@@ -1,20 +1,23 @@
 import { FlatList, StyleSheet, Text, View } from 'react-native'
 import Colors from '@/constants/Colors'
-import { Tasks } from '@/constants/Task'
+import { FilterOptions, Tasks } from '@/constants/Task'
 import Header from '@/components/Header'
+import FiltersTab from '@/components/FiltersTab'
 import {StatusBar} from "expo-status-bar"
-import React from 'react'
+import React, { useState } from 'react'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import DateSelector from '@/components/DateSelector'
+import TaskCard from '@/components/TaskCard'
 
 const index = () => {
   const Inset = useSafeAreaInsets()
+  const [activeFilter, setActiveFilter] = useState<FilterOptions>("All")
   return (
     <View style= {[ styles.container , {paddingTop: Inset.top} ]}>
       <StatusBar style='light'/>
       <FlatList 
       data={Tasks}
-      renderItem={({ item }) => <Text>{String(item)}</Text>}
+      renderItem={({ item }) => <TaskCard task={item}/>}
       keyExtractor={(_, index) => index.toString()}
       ListHeaderComponent={
         <> 
@@ -23,6 +26,7 @@ const index = () => {
         {/* Dateselector */}
         <DateSelector/>
         {/* Filter */}
+        <FiltersTab selected={activeFilter} onSelect={setActiveFilter} />
         </>
       }
       contentContainerStyle = {styles.list}
