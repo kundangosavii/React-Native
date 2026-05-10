@@ -5,6 +5,7 @@ import Header from '@/components/Header'
 import {StatusBar} from "expo-status-bar"
 import React from 'react'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import DateSelector from '@/components/DateSelector'
 
 const index = () => {
   const Inset = useSafeAreaInsets()
@@ -20,6 +21,7 @@ const index = () => {
         {/* Header */}
         <Header />
         {/* Dateselector */}
+        <DateSelector/>
         {/* Filter */}
         </>
       }
